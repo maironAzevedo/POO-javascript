@@ -1,17 +1,28 @@
 class Client {
-    nome
+    name
     cpf
-    agencia
-    saldo
-    rg
+}
+
+class Account {
+    #balance
+    #branch
+
+    withdraw(value) {
+        if(this.#balance <= value) return 
+        this.#balance -= value
+        return value
+    }
+
+    deposit(value) {
+        if(value <= 0) return
+        this.#balance += value
+    }
 }
 
 const client1 = new Client()
-
 client1.name = "João"
 client1.cpf = "111.111.111-11"
-client1.branch = 1001
-client1.balance = 0
-client1.rg = "12.345.678-9"
 
-console.log(client1)
+const accountClient1 = new Account()
+accountClient1.#balance = 0
+accountClient1.#branch = 1001
